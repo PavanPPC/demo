@@ -1,0 +1,43 @@
+CREATE TABLE dept (
+  deptno NUMBER(2,0),
+  dname  VARCHAR2(14),
+  loc    VARCHAR2(13),
+  CONSTRAINT pk_dept PRIMARY KEY (deptno)
+);
+
+INSERT INTO dept VALUES(10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO dept VALUES(20, 'RESEARCH', 'DALLAS');
+INSERT INTO dept VALUES(30, 'SALES', 'CHICAGO');
+INSERT INTO dept VALUES(40, 'OPERATIONS', 'BOSTON');
+
+CREATE TABLE emp (
+  empno    NUMBER(4,0),
+  ename    VARCHAR2(10),
+  sal      NUMBER(7,2),
+  deptno   NUMBER(2,0)
+ );
+
+
+
+
+
+ INSERT INTO emp VALUES(
+ 7839, 'KING', 25000, 10);
+
+
+ INSERT INTO emp VALUES(
+ 783, 'KNG', 30000, 10);
+ 
+INSERT INTO emp VALUES(
+ 7698, 'BLAKE', 15000,20);
+ 
+ INSERT INTO emp VALUES(
+ 698, 'BAKE', 40000,20);
+ 
+ INSERT INTO emp VALUES(
+ 768, 'BLAE', 8000,30);
+
+SELECT * FROM dept;
+SELECT * FROM emp;
+
+select max(sal) from emp inner join dept where emp.deptno=dept.deptno and sal< (select max(sal)from emp) ;
